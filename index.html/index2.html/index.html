@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-image: url(road.jpg); background-image: no-repeat; background-size: cover;">
+ <h1>
+    <center>
+        Use the navigations button to move the car.
+    </center>
+ </h1>   
+    <form action="">
+        <center>
+            <input type="button" value="start" onclick="start()"/>
+            <input type="button" value="stop" onclick="stop()"/>
+            <input type="button" value="reverse" onclick="reverse()"/>
+            <input type="button" value="restart" onclick="init()"/>
+        </center>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <img src="car.png" alt="" id="myimg" style="height: 200px;">
+    </form>
+<script>
+    var animation;
+    function init() {
+        img = document.getElementById("myimg");
+        img.style.position = 'absolute';
+        img.style.left = '0px';
+    }
+    window.onload = init;
+    function start() {
+        img.style.left = parseInt( img.style.left) + 10 + 'px';
+        animation = setTimeout(start, 10)
+    }
+    function reverse() {
+        img.style.left = parseInt( img.style.left) + -10 + 'px';
+        animation = setTimeout(reverse, 10);
+    }
+    function stop() {
+        clearTimeout(animation);
+        img.style.left = 'paused'
+    }
+</script>
+</html>
